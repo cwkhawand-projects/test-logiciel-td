@@ -6,6 +6,17 @@ Welcome to the **Project Title** repository! Thank you for contributing to this 
 
 To contribute to this project, please follow these steps:
 
+### 0. Prerequisites
+Run the following commands to install all required packages and create a Python venv:
+
+```bash
+sudo apt-get install -y --no-install-recommends python3 python3.12-venv
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install pylint
+```
+
 ### 1. Clone the Repository
 First, clone the repository to your local machine using the following command:
 
@@ -25,9 +36,10 @@ Branch names should be descriptive, e.g., `feature/login-page`, `bugfix/header-a
 
 ### 3. Develop and Test
 - Make your changes.
-- Ensure that all tests pass before pushing your changes. Run the tests with:
+- Ensure that all tests pass before pushing your changes. Run the linter and tests with:
 
 ```bash
+pylint src tests
 python3 -m unittest discover -s ./tests  -p 'test_*.py'
 ```
 
