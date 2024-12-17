@@ -1,12 +1,15 @@
-import sys, os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import unittest
-import src.helloworld as hw
+from src.helloworld import HelloWorld
+
 
 class TestHelloWorld(unittest.TestCase):
+    """Unit test for the HelloWorld class."""
+
     def test_hello_world(self):
-        HelloWorld = hw.HelloWorld()
-        self.assertEqual(HelloWorld.say_hello(), "Hello World!")
+        """Test the say_hello method to ensure it returns 'Hello World!'."""
+        hello_world_instance = HelloWorld()
+        self.assertEqual(hello_world_instance.say_hello(), "Hello World!")
+
 
 if __name__ == '__main__':
     unittest.main()
