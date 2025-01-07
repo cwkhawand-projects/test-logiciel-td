@@ -12,7 +12,9 @@ class Exercice1:
         Returns:
             list[int]: A list containing the three largest numbers in descending order.
         """
-        pass
+        if len(numbers) < 3:
+            raise ValueError("The list must contain at least 3 numbers.")
+        return sorted(numbers, reverse=True)[:3]
 
     @staticmethod
     def is_prime(number: int) -> bool:
@@ -25,7 +27,12 @@ class Exercice1:
         Returns:
             bool: True if the number is prime, False otherwise.
         """
-        pass
+        if number <= 1:
+            return False
+        for i in range(2, int(number**0.5) + 1):
+            if number % i == 0:
+                return False
+        return True
 
     @staticmethod
     def is_arithmetic_sequence(numbers: list[int]) -> bool:
@@ -38,4 +45,10 @@ class Exercice1:
         Returns:
             bool: True if the list is an arithmetic sequence, False otherwise.
         """
-        pass
+        if len(numbers) < 2:
+            return False
+        diff = numbers[1] - numbers[0]
+        for i in range(1, len(numbers)):
+            if numbers[i] - numbers[i - 1] != diff:
+                return False
+        return True
